@@ -1,5 +1,9 @@
 FROM node:0.12.7
 
+RUN apt-get update && \
+  apt-get install -y libkrb5-dev && \
+  rm -rf /var/lib/apt/lists/*
+
 RUN useradd -ms /bin/bash strong-pm \
     && chown -R strong-pm:strong-pm /usr/local \
     && su strong-pm -c "npm install -g strong-pm && npm cache clear"
