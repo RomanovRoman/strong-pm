@@ -1,4 +1,4 @@
-FROM node:0.10
+FROM node:0.12.7
 
 RUN useradd -ms /bin/bash strong-pm \
     && chown -R strong-pm:strong-pm /usr/local \
@@ -6,7 +6,7 @@ RUN useradd -ms /bin/bash strong-pm \
 
 # Set up some semblance of an environment
 WORKDIR /home/strong-pm
-ENV HOME=/home/strong-pm
+ENV HOME=/home/strong-pm PORT=3000
 
 # Run as non-privileged user inside container
 USER strong-pm
