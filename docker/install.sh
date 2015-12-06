@@ -6,7 +6,7 @@ DOCKER=$(which docker)
 INIT=none
 STOP=
 
-IMAGE=strongloop/strong-pm
+IMAGE=RomanovRoman/strong-pm
 CONTAINER=strong-pm-container
 CONTAINER_ENVS=
 
@@ -46,7 +46,7 @@ install_systemd_service() {
   cat > /etc/systemd/system/$CONTAINER.service <<EOF
 [Unit]
 Description=StrongLoop Process Manager Container
-Author=StrongLoop <callback@strongloop.com>
+Author=Roman Romanov <romanovroman@yandex.ru>
 After=docker.service
 
 [Service]
@@ -67,7 +67,7 @@ install_upstart_job() {
   echo "Installing Upstart job: $CONTAINER"
   cat > /etc/init/$CONTAINER.conf <<EOF
 description "StrongLoop Process Manager Container"
-author "StrongLoop <callback@strongloop.com>"
+author "Roman Romanov <romanovroman@yandex.ru>"
 start on filesystem and started docker
 stop on runlevel [!2345]
 respawn
@@ -116,6 +116,8 @@ start_container() {
   $DOCKER run $CONTAINER_ENVS \
     --detach --restart=no \
     --publish 8701:8701 --publish 3000:3000 \
+    --publish 3001:3001 --publish 3002:3002 \
+    --publish 3001:3003 --publish 3002:3004 \
     --name $CONTAINER \
     strongloop/strong-pm
 }
