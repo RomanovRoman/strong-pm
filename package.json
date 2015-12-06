@@ -1,5 +1,5 @@
 {
-  "name": "strong-pm",
+  "name": "rr-strong-pm",
   "description": "StrongLoop Process Manager",
   "version": "5.0.1",
   "keywords": [
@@ -30,9 +30,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git://github.com/strongloop/strong-pm.git"
+    "url": "git://github.com/RomanovRoman/strong-pm.git"
   },
-  "author": "engineering@strongloop.com",
+  "author": "Roman Romanov <romanovroman@yandex.ru>",
   "license": "Artistic-2.0",
   "main": "index.js",
   "scripts": {
